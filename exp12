@@ -1,0 +1,41 @@
+Adjacency Matrix:
+Order of vertices: 0 1 2 3
+   0 1 2 3
+0 [0 1 1 1]
+1 [1 0 1 0]
+2 [1 1 0 0]
+3 [1 0 0 0]
+
+Adjacency List:
+0 → 1 2 3
+1 → 0 2
+2 → 0 1
+3 → 0
+
+code:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n = 4; // number of vertices
+
+    vector<vector<int>> adj(n, vector<int>(n, 0));
+
+    // edges
+    adj[0][1] = adj[1][0] = 1;
+    adj[0][2] = adj[2][0] = 1;
+    adj[0][3] = adj[3][0] = 1;
+    adj[1][2] = adj[2][1] = 1;
+
+    // print matrix
+    cout << "Adjacency Matrix:\n";
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << adj[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
